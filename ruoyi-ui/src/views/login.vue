@@ -103,6 +103,9 @@ export default {
       immediate: true
     }
   },
+  /*
+  初始化方法
+   */
   created() {
     this.getCode();
     this.getCookie();
@@ -113,7 +116,7 @@ export default {
         this.captchaEnabled = res.captchaEnabled === undefined ? true : res.captchaEnabled;
         if (this.captchaEnabled) {
           this.codeUrl = "data:image/gif;base64," + res.img;
-          this.loginForm.uuid = res.uuid;
+          this.loginForm.uuid = res.uuid; //uuid对应redis验证值的key值
         }
       });
     },
